@@ -1,0 +1,181 @@
+LESSON FOR DAY 3
+
+HOW TO PRETEND/FAKE WITH 2-3 YEARS EXP
+
+http://msp.rivannoc.com/otrs/index.pl
+
+admin
+C1sc0123
+
+
+
+http://msp.rivannoc.com/otrs/customer.pl
+
+sj@goodyear.com
+pass
+
+
+192.168.1.129/27
+
+------------------------------------------------------------------
+
+HOW TO ROUTE
+
+CHOICES: STATIC, DEFAULT, OSPF, EIGRP, BGP, VPN TUNNELING
+
+--- STATIC
+
+1. PICK a position
+
+sample: R4 / static routing
+
+config t
+ip route 10.1.1.4 255.255.255.252 10.1.1.9
+ip route 10.1.1.0 255.255.255.252 10.1.1.9
+
+sample: R3 / static
+
+config t
+ip route 10.1.1.0 255.255.255.252 10.1.1.5
+
+sample: R2 / static
+
+config t
+ip route 10.1.1.8 255.255.255.252 10.1.1.6
+
+
+sample: R1 / static routing
+
+config t
+ip route 10.1.1.4 255.255.255.252 10.1.1.2
+ip route 10.1.1.8 255.255.255.252 10.1.1.2
+
+
+--------------------------------------------------------------------
+
+STATIC ROUTING FOR RUSSIAN IP ADDRESS
+
+R4: 
+
+100.43.72.0/24   CISCO: 10.1.1.9 | LINUX: 208.8.8.2 | WINDOWS: 10.3.3.1
+
+CISCO: ip route 100.43.72.0 255.255.255.0 10.1.1.9
+LINUX: ip route add 100.43.72.0/24 via 208.8.8.2
+WINDOWS: route add 100.43.72.0 mask 255.255.255.0 10.3.3.1
+
+
+commands: 
+
+route print 
+route print | findstr IP
+
+
+---------------------------------------------------------------------
+
+REMOVING STATIC ROUTE
+
+R4 / static routing
+
+config t
+no ip route 10.1.1.4 255.255.255.252 10.1.1.9
+no ip route 10.1.1.0 255.255.255.252 10.1.1.9
+
+R3 / static
+
+config t
+no ip route 10.1.1.0 255.255.255.252 10.1.1.5
+
+R2 / static
+
+config t
+no ip route 10.1.1.8 255.255.255.252 10.1.1.6
+
+
+R1 / static routing
+
+config t
+no ip route 10.1.1.4 255.255.255.252 10.1.1.2
+no ip route 10.1.1.8 255.255.255.252 10.1.1.2
+
+
+
+----------------------------------------------------------------
+
+SAMPLES:
+
+192.168.1.10/26 = 192.168.1.64
+
+EIGRP: NETWORK 192.168.1.64 0.0.0.63
+OSPF: NETWORK 192.168.1.64 255.255.255.192 AREA 0
+BGP: NETWORK 192.168.1.64 255.255.255.192
+
+
+
+192.168.1.205/27 = 192.168.1.192
+
+EIGRP: NETWORK 192.168.1.192 0.0.0.31
+OSPF: NETWORK 192.168.1.192 255.255.255.224 AREA 0
+BGP: NETWORK 192.168.1.192 255.255.255.224
+
+
+--------------------------------------------------------------
+
+Parameters of EIGRP
+
+K1 - Bandwidth
+K2 - Relay
+K3 - Delay
+K4 - Load
+K5 - Reliability
+
+-----------------------------------------------------------------
+
+HOW TO CONFIGURE REAL WORLD BGP
+
+---R1
+
+config t
+router bgp 1
+bgp route-id 1.1.1.1
+bgp log-neighbor-changes
+neighbor 208.8.8.4 remote-as 45 
+neighbor 207.7.7.2 remote-as 2
+neighbor 209.9.9.3 remote-as 3
+address-family ipv4
+neighbor 208.8.8.4 activate 
+neighbor 207.7.7.2 activate
+neighbor 209.9.9.3 activate
+network 209.9.9.0 mask 255.255.255.0
+network 208.8.8.0 mask 255.255.255.0
+network 207.7.7.0 mask 255.255.255.0
+network 10.1.1.0 mask 255.255.255.252
+
+
+commands for checking: sh ip bgp
+		       sh ip bgp summary
+                       sh bgp ipv4 unicast summary
+
+
+-------------------------------------------------------------------
+ 
+LESSON FOR DAY 4 / 
+
+access-list BAWALBAHAY
+DENY addict
+deny droga
+deny magnanakaw
+deny manguutang
+PERMIT all
+interface gatebahay
+  apply-list bawalbahay in
+
+
+EXTENDED LIST: specific:
+
+act 		type 		source		destination		ano klase
+DENY		INSECT		BASURA		ULAM			LANGAW
+DENY		SEASONING	GROCERY		ULAM			VETSIN
+
+
+
+nmap -v ip/domain
