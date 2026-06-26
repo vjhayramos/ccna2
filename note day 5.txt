@@ -1,0 +1,148 @@
+IPV6 SUBNETTING:
+
+2001:fd8:2212::/48 to 32 offices / subnets: 
+
+method: CAI
+
+convert: 32 is 2r_ = 5
+add to: /48 + /5 = /53
+ifinger mo: 2nd, 8i
+
+2001:fd8:2212:0000/53 
+2001:fd8:2212:0800/53
+2001:fd8:2212:1000/53
+2001:fd8:2212:1800/53
+2001:fd8:2212:2000/53
+2001:fd8:2212:2800/53 
+
+512 offices
+
+rt: 32 is 2r_ = 9
+add to: /48 + /9 = /57
+ifinger mo: 3rd, 8i
+
+2001:fd8:2212:0000/57 
+2001:fd8:2212:0800/57
+2001:fd8:2212:1000/57
+2001:fd8:2212:1800/57
+2001:fd8:2212:2000/57
+2001:fd8:2212:2800/57 
+
+
+rt: 32 is 2r_ = 11
+add to: /48 + /11 = /59
+ifinger mo: 3rd, 2i
+
+2001:fd8:2212:0000/59 
+2001:fd8:2212:0020/59
+2001:fd8:2212:0040/59
+2001:fd8:2212:0060/59
+2001:fd8:2212:0080/59
+2001:fd8:2212:00A0/59
+2001:fd8:2212:00C0/59
+2001:fd8:2212:00E0/59
+2001:fd8:2212:0100/59
+2001:fd8:2212:0120/59              
+
+-----------------------------------------------------------------------
+
+
+CISCO SPICNE LEAF TOPOLOGY
+
+-invented by cisco due to other company copied cisco switch/ing patent.
+
+Catalyst - 100G
+Nexus - 2T / use by data center
+
+-------------------------------------------------------------------------
+MASTERING THE SWITCH
+
+1. mac address learning": sh mac address-table
+2  mac address filtering
+3  mac address forwaring
+4  Php: loop avoidance
+5. $$: Vlan Feature $$ = 60k up
+
+LIGHTS ON SWITCH:
+Healthy - flashing green
+Amber/Orange - needs fixing
+
+blck , listen, learning, forward 
+
+wonderwoman is faster than darna
+
+darna 3 secs
+wonderwoman immediate response
+
+
+
+
+---------------------------------------------------------------------------
+
+enable
+conf t
+hostname CUCMglobe
+no logging console
+no ip domain-lookup
+line cons 0 
+ no password
+ exec-timeout 0 0
+int fa0/0
+ no shut
+ ip add 10.51.100.8 255.255.255.0
+end
+
+
+--------------------------------------------------------------------------
+
+
+FOR LAB EXAM 
+
+
+TASK17: Port-Aggregation/Etherchannel: 100% exam LAB!!!
+LACP:LINK AGGREGATION CONTROL PROTOCOL = ieee worldStandrad
+cisco = PortAggregationProtocol: PaGP
+Combinding Two/More Layer 2 links AS ONE! Unite/UNITY
+@taas/BABA:
+config t
+Int Range fa0/10-12
+ channel-group 1 mode active
+ channel-protocol Lacp
+ do sh etherchannel summary
+ do sh int po1 | inc BW
+
+
+--------------------------------------------------------------------------
+
+HOW TO PASS THE CCNA EXAM IN 2026:
+
+STEP 1: Sell your body: 300+ VATMAN: Recto 333 usd Cash / Credit
+STEP 2: Killer labs: 6-8 labs.
+
+
+
+@SW102
+conf t
+ipv6 unicast-routing
+int e0/0
+ ipv6 add 2008:db8:1000::/60 eui-64
+ no shut
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-------------------------------------------------------------------------                  
